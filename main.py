@@ -1,9 +1,9 @@
+import os
 import requests
 import time
 from datetime import datetime
 import pytz
 
-import os
 TOKEN = os.environ["8560032476:AAGabGXhK-wRmWfMk2IkidYkXaQ_2zd6Rbs
 "]
 CHAT_ID = "@yscountdown_2026"
@@ -14,12 +14,18 @@ count1 = 286
 count2 = 258
 
 def send():
+    global count1, count2
+
     text = f"""🌸 Countdown :
 
 ~~AMA+ : D-{count1}✨
 ~~fall semester : D-{count2}✨
 """
     requests.post(URL, data={"chat_id": CHAT_ID, "text": text})
+
+    count1 -= 1
+    count2 -= 1
+
 
 print("bot started")
 
