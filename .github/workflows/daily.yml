@@ -1,0 +1,27 @@
+name: Daily Countdown Bot
+
+on:
+  schedule:
+    - cron: "30 5 * * *"  # ساعت 9 صبح ایران = 5:30 UTC
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests pytz
+
+      - name: Run bot
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: python main.py
