@@ -4,8 +4,7 @@ import time
 from datetime import datetime
 import pytz
 
-TOKEN = os.environ["8560032476:AAGabGXhK-wRmWfMk2IkidYkXaQ_2zd6Rbs
-"]
+TOKEN = os.environ["TOKEN"]
 CHAT_ID = "@yscountdown_2026"
 
 URL = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
